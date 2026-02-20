@@ -1,0 +1,100 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await article.render();
+---
+
+<Layout title={`${article.data.title} - Gnosis Library`}>
+  <article class="article">
+    <header class="article-header">
+      <span class="article-category">{article.data.category}</span>
+      <h1 class="article-title">{article.data.title}</h1>
+      <p class="article-meta">
+        Published {article.data.pubDate.toLocaleDateString('en-US', { 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric' 
+        })}
+        {article.data.updatedDate && ` • Updated ${article.data.updatedDate.toLocaleDateString('en-US', { 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric' 
+        })}`}
+      </p>
+      {article.data.description && (
+        <p class="article-description">{article.data.description}</p>
+      )}
+    </header>
+
+    {article.data.audio && (
+      <div class="audio-container">
+        <div class="audio-label">Audio Narration</div>
+        <audio controls>
+          <source src={article.data.audio} type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    )}
+
+    {article.data.video && article.data.videoProvider === 'youtube' && (
+      <div class="video-container">
+        <iframe
+          src={`https://www.youtube.com/embed/${article.data.video}`}
+          title="Video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    )}
+
+    {article.data.video && article.data.videoProvider === 'vimeo' && (
+      <div class="video-container">
+        <iframe
+          src={`https://player.vimeo.com/video/${article.data.video}`}
+          title="Video"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    )}
+
+    {article.data.video && article.data.videoProvider === 'self' && (
+      <div class="video-container" style="padding: 0; background: transparent;">
+        <video controls style="width: 100%; height: 100%; border-radius: 12px;">
+          <source src={article.data.video} type="video/mp4" />
+          Your browser does not support the video element.
+        </video>
+      </div>
+    )}
+
+    <div class="article-content">
+      <Content />
+    </div>
+
+    {article.data.tags.length > 0 && (
+      <div class="article-tags">
+        {article.data.tags.map((tag) => (
+          <span class="tag">#{tag}</span>
+        ))}
+      </div>
+    )}
+  </article>
+
+  <div style="margin-top: 2rem; text-align: center;">
+    <a href="/articles/" style="color: var(--accent);">
+      ← Back to All Articles
+    </a>
+  </div>
+</Layout>

@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const articles = (await getCollection('articles')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout title="Gnosis Library">
+  <section class="hero">
+    <h1 class="hero-title">Gnosis Library</h1>
+    <p class="hero-subtitle">
+      A collection of ancient Gnostic texts, audio narrations, and video teachings. 
+      Discover hidden wisdom from the Nag Hammadi Library and beyond.
+    </p>
+  </section>
+
+  <section>
+    <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; font-family: -apple-system, BlinkMacSystemFont, sans-serif;">
+      Latest Articles
+    </h2>
+    
+    <div class="article-list">
+      {articles.map((article) => (
+        <article class="article-card">
+          <a href={`/articles/${article.slug}/`}>
+            <h3 class="article-card-title">{article.data.title}</h3>
+            <p class="article-card-meta">
+              {article.data.category} • {article.data.pubDate.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+              })}
+              {article.data.audio && ' • 🎧 Audio Available'}
+              {article.data.video && ' • 🎬 Video Available'}
+            </p>
+            <p class="article-card-excerpt">{article.data.description}</p>
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+</Layout>

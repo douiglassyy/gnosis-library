@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const articles = (await getCollection('articles')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const categories = [...new Set(articles.map(a => a.data.category))];
+---
+
+<Layout title="All Articles - Gnosis Library">
+  <section style="margin-bottom: 2rem;">
+    <h1 style="font-size: 2rem; margin-bottom: 1rem; font-family: -apple-system, BlinkMacSystemFont, sans-serif;">
+      All Articles
+    </h1>
+    <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+      Browse our complete collection of Gnostic texts and teachings.
+    </p>
+    
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem;">
+      <span style="background: var(--bg-tertiary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem;">
+        All ({articles.length})
+      </span>
+      {categories.map(cat => (
+        <span style="background: var(--bg-tertiary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; color: var(--accent);">
+          {cat}
+        </span>
+      ))}
+    </div>
+  </section>
+
+  <div class="article-list">
+    {articles.map((article) => (
+      <article class="article-card">
+        <a href={`/articles/${article.slug}/`}>
+          <h3 class="article-card-title">{article.data.title}</h3>
+          <p class="article-card-meta">
+            {article.data.category} • {article.data.pubDate.toLocaleDateString('en-US', { 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric' 
+            })}
+            {article.data.audio && ' • 🎧 Audio'}
+            {article.data.video && ' • 🎬 Video'}
+          </p>
+          <p class="article-card-excerpt">{article.data.description}</p>
+        </a>
+      </article>
+    ))}
+  </div>
+</Layout>
