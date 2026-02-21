@@ -25,7 +25,7 @@ const articles = (await getCollection('articles')).sort(
     <div class="article-list">
       {articles.map((article) => (
         <article class="article-card">
-          <a href={`/articles/${article.slug}/`}>
+          <a href={`/gnosis-library/articles/${article.slug}/`}>
             <h3 class="article-card-title">{article.data.title}</h3>
             <p class="article-card-meta">
               {article.data.category} • {article.data.pubDate.toLocaleDateString('en-US', { 
