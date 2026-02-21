@@ -4,7 +4,7 @@ description: "A modernized Gnostic text from Nag Hammadi Codex VI — a mystical
 pubDate: 2026-02-20
 category: "Gnostic Texts"
 tags: ["Nag Hammadi", "Peter", "Apostles", "Gnosis", "Ancient Texts"]
-audio: "/audio/acts-of-peter/01-introduction-and-journey.mp3"
+audio: "/gnosis-library/audio/acts-of-peter/01-introduction-and-journey.mp3"
 ---
 
 ## 🎧 Audio Narration
