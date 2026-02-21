@@ -4,7 +4,7 @@ description: "A compact sample article to demonstrate article pages with audio a
 pubDate: 2026-02-20
 category: "Gnostic Texts"
 tags: ["Sample", "Gnosis", "Demo"]
-audio: "/audio/acts-of-peter/01-introduction-and-journey.mp3"
+audio: "/gnosis-library/audio/acts-of-peter/01-introduction-and-journey.mp3"
 video: "dQw4w9WgXcQ" # YouTube id as example
 videoProvider: "youtube"
 ---
