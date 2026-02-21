@@ -4,7 +4,7 @@ description: "The authentic Gnostic gospel from Nag Hammadi Codex II — 114 say
 pubDate: 2026-02-21
 category: "Gnostic Texts"
 tags: ["Nag Hammadi", "Gospel of Thomas", "Jesus", "Gnosis", "Authentic Translation", "Sayings", "Ancient Scripture"]
-audio: "/gnosis-library/audio/gospel-of-thomas/01-sayings-1-to-30.mp3"
+// audio: "/gnosis-library/audio/gospel-of-thomas/01-sayings-1-to-30.mp3"
 ---
 
 # The Gospel of Thomas
