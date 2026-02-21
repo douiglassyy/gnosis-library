@@ -14,7 +14,7 @@ audio: "/audio/acts-of-peter/01-introduction-and-journey.mp3"
 <div class="audio-container">
   <div class="audio-label">Part 1: Introduction & The Journey Begins</div>
   <audio controls>
-    <source src="/audio/acts-of-peter/01-introduction-and-journey.mp3" type="audio/mpeg" />
+    <source src="/gnosis-library/audio/acts-of-peter/01-introduction-and-journey.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
 </div>
@@ -22,7 +22,7 @@ audio: "/audio/acts-of-peter/01-introduction-and-journey.mp3"
 <div class="audio-container">
   <div class="audio-label">Part 2: The City of Habitation & The Nature of Suffering</div>
   <audio controls>
-    <source src="/audio/acts-of-peter/02-city-of-habitation-and-suffering.mp3" type="audio/mpeg" />
+    <source src="/gnosis-library/audio/acts-of-peter/02-city-of-habitation-and-suffering.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
 </div>
@@ -30,7 +30,7 @@ audio: "/audio/acts-of-peter/01-introduction-and-journey.mp3"
 <div class="audio-container">
   <div class="audio-label">Part 3: The Mystery of the Twelve & The Healing Power</div>
   <audio controls>
-    <source src="/audio/acts-of-peter/03-mystery-of-twelve-and-healing.mp3" type="audio/mpeg" />
+    <source src="/gnosis-library/audio/acts-of-peter/03-mystery-of-twelve-and-healing.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
 </div>
@@ -38,7 +38,7 @@ audio: "/audio/acts-of-peter/01-introduction-and-journey.mp3"
 <div class="audio-container">
   <div class="audio-label">Part 4: The Departure & Closing Reflection</div>
   <audio controls>
-    <source src="/audio/acts-of-peter/04-departure-and-closing.mp3" type="audio/mpeg" />
+    <source src="/gnosis-library/audio/acts-of-peter/04-departure-and-closing.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
 </div>
